@@ -12,7 +12,7 @@
   "author": "Thomas Junghans",
   "license": "MIT",
   "devDependencies": {
-    "selenium-webdriver": "^2.42",
+    "webdriverjs": "^1.7",
     "mocha" : "^1.2"
   }
 }
