@@ -1,14 +1,17 @@
 'use strict';
 
-//https://github.com/vvo/selenium-standalone
-
 var webdriverjs = require('webdriverjs');
 var assert = require('assert');
 
 
+//https://github.com/vvo/selenium-standalone
+
 // Docu: https://code.google.com/p/selenium/source/browse/javascript/webdriver/webdriver.js
 
-describe('HSR Startpage', function () {
+describe('Component', function () {
+
+	var url = 'http://localhost:3000';
+
 	this.timeout(99999999);
 	var client = {};
 
@@ -20,21 +23,22 @@ describe('HSR Startpage', function () {
 	it('has title', function (done) {
 	
 		client
-			.url('http://www.hsr.ch/')
+			.url(url)
 			.getTitle(function(err, title) {
                  		assert(err === null);
-                 		assert(title === 'HSR Hochschule für Technik Rapperswil: Home');
+                 		assert(title === 'Component Test');
              	})
 			.call(done);
 	});
 
-	it('has a logo', function (done) {
+	it('has heading', function (done) {
 	
 		client
-			.url('http://www.hsr.ch/')
-			.getTagName ('#logo', function(err, tagName)  {
-				console.log(tagName, err);
-			});
+			.url(url)
+			.getText ('#component h2', function(err, text)  {
+				assert(err === null);
+				assert.equal(text, 'Currency Converter');
+			})
 			.call(done);
 	});
 

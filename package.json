@@ -7,12 +7,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test -c -R spec"
+    "test": "mocha test -c -R spec",
+    "server" : "node server.js"
   },
   "author": "Thomas Junghans",
   "license": "MIT",
   "devDependencies": {
     "webdriverjs": "^1.7",
-    "mocha" : "^1.2"
+    "mocha" : "^1.2",
+    "express" : "^4.8"
   }
 }
