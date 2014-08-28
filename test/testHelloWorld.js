@@ -1,6 +1,6 @@
 'use strict';
 
-var webdriverjs = require('webdriverjs');
+var webdriverio = require('webdriverio');
 var assert = require('assert');
 
 
@@ -8,41 +8,49 @@ var assert = require('assert');
 
 // Docu: https://code.google.com/p/selenium/source/browse/javascript/webdriver/webdriver.js
 
-describe('Component', function () {
+var options = {
+    desiredCapabilities: {
+        browserName: 'phantomjs'
+    }
+};
 
-	var url = 'http://localhost:3000';
+describe('Component', function() {
 
-	this.timeout(99999999);
-	var client = {};
+    var url = 'http://localhost:3000';
 
-	before(function (done) {
-		client = webdriverjs.remote({desiredCapabilities: { browserName: 'phantomjs' }} );
-            client.init(done);
-	});
+    this.timeout(99999999);
+    var client = {};
 
-	it('has title', function (done) {
-	
-		client
-			.url(url)
-			.getTitle(function(err, title) {
-                 		assert(err === null);
-                 		assert(title === 'Component Test');
-             	})
-			.call(done);
-	});
+    before(function(done) {
+        client = webdriverio.remote(options);
+        client.init(done);
+    });
 
-	it('has heading', function (done) {
-	
-		client
-			.url(url)
-			.getText ('#component h2', function(err, text)  {
-				assert(err === null);
-				assert.equal(text, 'Currency Converter');
-			})
-			.call(done);
-	});
+    after(function(done) {
+        client.end(done);
+    });
 
-	after(function(done) {
-        	client.end(done);
-    	});
+    it('has title', function(done) {
+
+        client
+            .url(url)
+            .title(function(err, res) {
+                assert(err === null);
+                assert(res.value === 'Component Test');
+            })
+            .call(done);
+    });
+
+    it('has heading', function(done) {
+
+        client
+            .url(url)
+            .getText('#component h2', function(err, text) {
+                assert(!err);
+                assert.equal(text, 'Currency Converter');
+            })
+            .call(done);
+    });
+
+
 });

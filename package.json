@@ -13,7 +13,7 @@
   "author": "Thomas Junghans",
   "license": "MIT",
   "devDependencies": {
-    "webdriverjs": "^1.7",
+    "webdriverio": "^2.1",
     "mocha" : "^1.2",
     "express" : "^4.8"
   }
