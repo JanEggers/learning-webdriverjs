@@ -14,7 +14,7 @@ var options = {
     }
 };
 
-describe('Component', function() {
+describe('Simple Calculator', function() {
 
     var url = 'http://localhost:3000';
 
@@ -23,7 +23,11 @@ describe('Component', function() {
 
     before(function(done) {
         client = webdriverio.remote(options);
-        client.init(done);
+        client
+            .init()
+            .url(url)
+            .call(done);
+
     });
 
     after(function(done) {
@@ -41,16 +45,26 @@ describe('Component', function() {
             .call(done);
     });
 
-    it('has heading', function(done) {
-
+    it('has a heading', function(done) {
         client
             .url(url)
-            .getText('#component h2', function(err, text) {
+            .getText('.simple-calculator h2', function(err, text) {
                 assert(!err);
-                assert.equal(text, 'Currency Converter');
+                assert.equal(text, 'Simple Calculator');
             })
             .call(done);
     });
 
+    it('has inputs for addition', function(done) {
+        client
+            .setValue('.simple-calculator input[name=augend]', '3')
+            .setValue('.simple-calculator input[name=addend]', '4')
+            .click('.add')
+            .getValue('.simple-calculator input[name=sum]', function(err, value) {
+                assert(!err);
+                assert.equal(value, '7');
+            })
+            .call(done);
+    });
 
 });

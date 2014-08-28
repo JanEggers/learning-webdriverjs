@@ -6,15 +6,17 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "test": "mocha test -c -R spec",
-    "server" : "node server.js"
-  },
   "author": "Thomas Junghans",
   "license": "MIT",
   "devDependencies": {
-    "webdriverio": "^2.1",
-    "mocha" : "^1.2",
-    "express" : "^4.8"
+    "browserify": "^5.10.1",
+    "express": "^4.8",
+    "mocha": "^1.2",
+    "webdriverio": "^2.1"
+  },
+  "scripts": {
+    "watch-test": "mocha test -w -c -R spec",
+    "start": "node server.js",
+    "test-dev" : "npm start & npm run watch-test" 
   }
 }
