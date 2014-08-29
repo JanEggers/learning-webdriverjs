@@ -67,4 +67,16 @@ describe('Simple Calculator', function() {
             .call(done);
     });
 
+    it('has inputs for subtraction', function(done) {
+        client
+            .setValue('.simple-calculator input[name=minuend]', '7')
+            .setValue('.simple-calculator input[name=subtraend]', '4')
+            .click('.subtract')
+            .getValue('.simple-calculator input[name=difference]', function(err, value) {
+                assert(!err);
+                assert.equal(value, '3');
+            })
+            .call(done);
+    });
+
 });

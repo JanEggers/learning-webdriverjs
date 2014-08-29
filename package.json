@@ -17,6 +17,6 @@
   "scripts": {
     "watch-test": "mocha test -w -c -R spec",
     "start": "node server.js",
-    "test-dev" : "npm start & npm run watch-test" 
+    "test-dev" : "bin/start-test.sh" 
   }
 }
