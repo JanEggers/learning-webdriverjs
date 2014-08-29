@@ -79,4 +79,16 @@ describe('Simple Calculator', function() {
             .call(done);
     });
 
+    it('has inputs for multiplication', function(done) {
+        client
+            .setValue('.simple-calculator input[name=multiplicand]', '7')
+            .setValue('.simple-calculator input[name=multiplier]', '4')
+            .click('.multiply')
+            .getValue('.simple-calculator input[name=product]', function(err, value) {
+                assert(!err);
+                assert.equal(value, '28');
+            })
+            .call(done);
+    });
+
 });
