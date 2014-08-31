@@ -1,6 +1,6 @@
 {
   "name": "selenium-ex",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -19,10 +19,19 @@
     "watch-test": "mocha test -w -c -R spec",
     "start": "node server.js",
     "test-dev": "bin/start-test.sh",
-    "build-js": "bin/build.sh",
-    "watch-js": "bin/watch.sh"
+    "build-css": "bin/build-css.sh",
+    "build-js": "bin/build-js.sh",
+    "watch-css": "bin/watch-css.sh",
+    "watch-js": "bin/watch-js.sh",
+    "watch": "npm run watch-css & npm run watch-js"
   },
   "dependencies": {
-    "extend": "^1.3.0"
+    "extend": "^1.3.0",
+    "normalize.css": "^3.0.1"
+  },
+  "repository" :
+  { 
+    "type" : "git",
+    "url" : "https://github.com/tjunghans/learning-webdriverjs"
   }
 }
