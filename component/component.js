@@ -1,12 +1,8 @@
 'use strict';
 
+var dom = require('./../lib/dom');
 var controller = require('./controller');
 var view = require('./view');
 
-function $(selector) {
-    var elements = document.querySelectorAll(selector);
-    return elements.length === 1 ? elements[0] : elements;
-}
-
 var ctrl = controller();
-var view = view.create($('.simple-calculator'), ctrl);
+var view = view.create(dom.el('.simple-calculator'), ctrl);
