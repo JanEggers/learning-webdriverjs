@@ -1,3 +1,3 @@
 #!/bin/bash
 
-(stylus --watch component/css/src/main.styl --out component/css/static --compress)
+(stylus --watch --compress --include-css component/css/src/main.styl --out component/css/static)
