@@ -28,7 +28,7 @@ exports.create = function (node, ctrl) {
 	var difference = view.el('input[name=difference]');
 
 	subtractBtn.addEventListener('click', function (evt) {
-		difference.value = Number(minuend.value) - Number(subtraend.value);
+		difference.value = ctrl.multiply(minuend.value, subtraend.value);
 	}, false);
 
 	// Multiplication
@@ -41,5 +41,12 @@ exports.create = function (node, ctrl) {
 		product.value = ctrl.multiply(multiplicand.value, multiplier.value);
 	}, false);
 
-	// TODO: Add division
+    var divBtn = view.el('.divide');
+    var div1 = view.el('input[name=div1]');
+    var div2 = view.el('input[name=div2]');
+    var divResult = view.el('input[name=divResult]');
+
+    divBtn.addEventListener('click', function (evt) {
+        divResult.value = ctrl.divide(div1.value, div2.value);
+    }, false);
 };

@@ -21,8 +21,10 @@ extend(Controller.prototype, {
 	},
 	subtract : function (a, b) {
 		return Number(a) - Number(b);
-	}
-	// Todo: Add divide
+	},
+    divide : function (a, b) {
+        return Number(a) / Number(b);
+    }
 });
 
 module.exports = function (config) {

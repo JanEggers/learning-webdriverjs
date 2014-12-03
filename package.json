@@ -13,16 +13,20 @@
     "express": "^4.8",
     "mocha": "^1.2",
     "watchify": "^1.0",
-    "webdriverio": "^2.1"
+    "webdriverio": "^2.1",
+    "stylus": "*",
+    "selenium-standalone": "*",
+    "phantomjs": "*",
+    "assert": "*"
   },
   "scripts": {
     "watch-test": "mocha test -w -c -R spec",
     "start": "node server.js",
-    "test-dev": "bin/start-test.sh",
-    "build-css": "bin/build-css.sh",
-    "build-js": "bin/build-js.sh",
-    "watch-css": "bin/watch-css.sh",
-    "watch-js": "bin/watch-js.sh",
+    "test-dev": "/bin/start-test.sh",
+    "build-css": "/bin/build-css.sh",
+    "build-js": "/bin/build-js.sh",
+    "watch-css": "/bin/watch-css.sh",
+    "watch-js": "/bin/watch-js.sh",
     "watch": "npm run watch-css & npm run watch-js"
   },
   "dependencies": {

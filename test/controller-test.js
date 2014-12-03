@@ -30,7 +30,8 @@ describe('Controller', function() {
         assert.equal(ctrl.subtract('3', '2'), 1);
     });
 
-    // Todo: Write asserts for extreme cases such as:
-    // - missing argument
-    // - non numeric type
+    it('can divide', function() {
+        assert.equal(ctrl.divide(4, 2), 2);
+        assert.equal(ctrl.divide('4', '2'), 2);
+    });
 });

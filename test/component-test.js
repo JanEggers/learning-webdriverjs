@@ -2,8 +2,6 @@
 
 var webdriverio = require('webdriverio');
 var assert = require('assert');
-
-
 //https://github.com/vvo/selenium-standalone
 
 // Docu: https://code.google.com/p/selenium/source/browse/javascript/webdriver/webdriver.js
@@ -87,6 +85,18 @@ describe('Simple Calculator', function() {
             .getValue('.simple-calculator input[name=product]', function(err, value) {
                 assert(!err);
                 assert.equal(value, '28');
+            })
+            .call(done);
+    });
+
+    it('has inputs for division', function(done) {
+        client
+            .setValue('.simple-calculator input[name=div1]', '4')
+            .setValue('.simple-calculator input[name=div2]', '2')
+            .click('.divide')
+            .getValue('.simple-calculator input[name=divResult]', function(err, value) {
+                assert(!err);
+                assert.equal(value, '2');
             })
             .call(done);
     });
